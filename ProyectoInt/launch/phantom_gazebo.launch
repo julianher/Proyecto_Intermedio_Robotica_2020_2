@@ -7,6 +7,20 @@
 	<arg name="y" default="0"/>
 	<arg name="z" default="0"/>
 
+
+	<arg name="x2" default="1"/>
+	<arg name="y2" default="0"/>
+	<arg name="z2" default="0"/>
+
+	<arg name="roll" default="0"/>
+	<arg name="pitch" default="0"/>
+	<arg name="yaw" default="0"/>
+
+
+	<arg name="roll2" default="0"/>
+	<arg name="pitch2" default="0"/>
+	<arg name="yaw2" default="3.1416"/>
+
 	<!-- Load controllers -->
     <rosparam command="load" file="$(find ProyectoInt)/config/joints.yaml"/>
         
@@ -31,7 +45,14 @@
 		type="spawn_model" 
 		output="screen"
 		args="-urdf -param robot_description
-		-model 2R -x $(arg x) -y $(arg y) -z $(arg z)" />
+		-model phantom -x $(arg x) -y $(arg y) -z $(arg z) -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)" />
+
+	<node name="mybot_spawn2" 
+		pkg="gazebo_ros" 
+		type="spawn_model" 
+		output="screen"
+		args="-urdf -param robot_description
+		-model phantom2 -x $(arg x2) -y $(arg y2) -z $(arg z2) -R $(arg roll2) -P $(arg pitch2) -Y $(arg yaw2)" />
 
 	<!-- State Publisher -->
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
