@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+  <!-- Robot Model -->
+  <!-- <param name="robot_description"
+    command="$(find xacro)/xacro.py $(find intermediate_project)/urdf/px_description_gazebo.xacro" /> -->
+
+
+  <!-- BEGIN ROBOT 1-->
+  <group ns="robot1">
+
+    <param name="robot_description" command="$(find xacro)/xacro.py $(find intermediate_project)/urdf/px1_description_gazebo.xacro"/>
+    <arg name="init_pose" value="-x 0.3 -y 0 -z 0"/>
+    <arg name="robot_name"  value="Robot1" />
+
+    <param name="tf_prefix" value="robot1_tf" />
+
+    <!-- Load controllers -->
+    <rosparam command="load" file="$(find intermediate_project)/config/joints.yaml" ns="robot1"/>
+
+    <!-- Controllers -->
+    <node name="controller_spawner_first" pkg="controller_manager" type="spawner"
+        respawn="false" output="screen" 
+        args="--namespace=robot1 
+        joint_state_controller
+        joint1_position_controller
+        joint2_position_controller
+        joint3_position_controller
+        joint4_position_controller
+        gripper_position_controller
+        --timeout 60">
+    </node>
+
+    <!-- Spawn Robot Model -->
+    <node name="spawn_minibot_model" pkg="gazebo_ros" type="spawn_model"
+     args="$(arg init_pose) -urdf -param robot_description -model $(arg robot_name)"
+     respawn="false" output="screen" />
+
+    <!-- State Publisher -->
+    <node pkg="robot_state_publisher" type="state_publisher" 
+          name="robot_state_publisher_1" output="screen"/>
+
+    <!-- rqt -->
+    <node name="rqt_publisher_1" pkg="rqt_publisher" type="rqt_publisher" />
+  </group>
+
+
+  <!-- BEGIN ROBOT 2-->
+  <group ns="robot2">
+  <param name="robot_description" command="$(find xacro)/xacro.py $(find intermediate_project)/urdf/px2_description_gazebo.xacro"/>
+    <arg name="init_pose" value="-x -0.3 -y 0 -z 0" />
+    <arg name="robot_name"  value="Robot2" />
+
+    <param name="tf_prefix" value="robot2_tf" />
+
+    <!-- Load controllers -->
+    <rosparam command="load" file="$(find intermediate_project)/config/joints.yaml" ns="robot2"/>
+
+    <!-- Controllers -->
+    <node name="controller_spawner_second" pkg="controller_manager" type="spawner"
+        respawn="false" output="screen" 
+        args="--namespace=robot2
+        joint_state_controller
+        joint1_position_controller
+        joint2_position_controller
+        joint3_position_controller
+        joint4_position_controller
+        gripper_position_controller
+        --timeout 60">
+    </node>
+
+    <!-- Spawn Robot Model -->
+    <node name="spawn_minibot_model" pkg="gazebo_ros" type="spawn_model"
+     args="$(arg init_pose) -urdf -param robot_description -model $(arg robot_name)"
+     respawn="false" output="screen" />
+
+    <!-- State Publisher -->
+    <node pkg="robot_state_publisher" type="state_publisher" 
+          name="robot_state_publisher_2" output="screen"/>
+
+    <!-- rqt -->
+    <node name="rqt_publisher_2" pkg="rqt_publisher" type="rqt_publisher" />
+  </group>
+
+  	<!-- Gazebo Initialization -->
+	<include file="$(find gazebo_ros)/launch/empty_world.launch">
+		<arg name="use_sim_time" value="true"/>
+	</include> 
+</launch>

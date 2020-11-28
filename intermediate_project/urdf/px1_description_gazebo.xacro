@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+<robot name="Phantom1" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="$(find intermediate_project)/urdf/links_joints.xacro" />
+    <xacro:include filename="$(find intermediate_project)/urdf/robot_parameters.xacro" />
+    
+    <link name="world"/>  <!-- Base link from Gazebo-->
+
+    <joint name="joint_name" type="fixed"> <!-- Joint to fix the base so it does not move-->
+      <parent link="world"/>
+      <child link="${link_00_name}"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 3.1416"/>
+    </joint>
+
+
+    <xacro:m_link_mesh  
+    name= "${link_00_name}"
+    origin_xyz= "0 0 0"
+    origin_rpy= "0 0 0"
+    meshfile="package://intermediate_project/meshes/PincherBase.stl"
+    mass= "0.131580" 
+    ixx= "0.000253866735" ixy= "0.000000038174"  ixz= "-0.000051899902"
+    iyy= "0.000291338242" iyz= "-0.000000053732"
+    izz= "0.000276626170"
+    />
+
+    <xacro:m_joint 
+    name = "${joint_01_name}" 
+    type = "revolute"
+    axis_xyz = "0 0 1"
+    origin_xyz = "0 0 0.136"
+    origin_rpy = "0 0 0"
+    parent = "${link_00_name}"
+    child = "${link_01_name}"
+    limit_l = "-3.14"
+    limit_u = "3.14"
+    limit_e ="10.0"
+    limit_v = "0.5"
+    />
+
+    <xacro:m_link_mesh  
+    name= "${link_01_name}"
+    origin_xyz= "0 0 -0.042"
+    origin_rpy= "0 0 0"
+    meshfile="package://intermediate_project/meshes/PincherLink1.stl"
+    mass= "0.046208" 
+    ixx= "0.000014302766"  ixy= "-0.000000000827" ixz= "0.000000010141"
+    iyy= "0.000012128460"  iyz= "-0.000000150269"
+    izz= "0.000007452872"
+    />
+
+    <xacro:m_joint 
+    name = "${joint_02_name}" 
+    type = "revolute"
+    axis_xyz = "0 0 1"
+    origin_xyz = "0 0 0"
+    origin_rpy = "0 -1.5708 -1.5708"
+    parent = "${link_01_name}"
+    child = "${link_02_name}"
+    limit_l = "-3.14"
+    limit_u = "3.14"
+    limit_e ="10.0"
+    limit_v = "0.5"
+    />
+
+    <xacro:m_link_mesh 
+    name= "${link_02_name}"
+    origin_xyz= "0 0 0"
+    origin_rpy= "1.5708 0 1.5708" 
+    meshfile="package://intermediate_project/meshes/PincherLink2.stl"
+    mass= "0.063714"
+    ixx= "0.000048752780" ixy= "-0.000000001240" ixz= "-0.000000007724"
+    iyy= "0.000043804724" iyz= "-0.000000731943"
+    izz= "0.000012250422"
+    />
+
+    <xacro:m_joint 
+    name = "${joint_03_name}" 
+    type = "revolute"
+    axis_xyz = "0 0 1"
+    origin_xyz = "0.107 0 0"
+    origin_rpy = "0 0 1.5708"
+    parent = "${link_02_name}"
+    child = "${link_03_name}"
+    limit_l = "-3.14"
+    limit_u = "3.14"
+    limit_e ="10.0"
+    limit_v = "0.5"
+    />
+
+    <xacro:m_link_mesh 
+    name= "${link_03_name}"
+    origin_xyz= "0 0 0"
+    origin_rpy= "1.5708 0 1.5708"
+    meshfile="package://intermediate_project/meshes/PincherLink3.stl"
+    mass= "0.063714"
+    ixx= "0.000048752780" ixy= "-0.000000001240" ixz= "-0.000000007724"
+    iyy= "0.000043804724" iyz= "-0.000000731943"
+    izz= "0.000012250422"
+    />
+
+    <xacro:m_joint 
+    name = "${joint_04_name}" 
+    type = "revolute"
+    axis_xyz = "0 0 1"
+    origin_xyz = "0.107 0 0"
+    origin_rpy = "0 0 0"
+    parent = "${link_03_name}"
+    child = "${link_04_name}" 
+    limit_l = "-3.14"
+    limit_u = "3.14"
+    limit_e ="10.0"
+    limit_v = "0.5"
+    />
+
+    <xacro:m_link_mesh
+    name= "${link_04_name}"
+    origin_xyz= "0 0 0"
+    origin_rpy= "1.5708 0 1.5708"
+    meshfile="package://intermediate_project/meshes/PincherTool.stl"
+    mass= "0.062845"
+    ixx= "0.000022623701" ixy= "0.000000016121"  ixz= "0.000000924593"
+    iyy= "0.000027037255" iyz= "-0.000000004393"
+    izz= "0.000021160512"
+    />
+
+    <xacro:m_joint 
+    name="${joint_05_name}" 
+    type="prismatic"
+    axis_xyz="0 0 1"
+    origin_rpy="3.1416 0 0" 
+    origin_xyz="0.071344 0 0.028641"
+    parent="${link_04_name}" 
+    child="${link_05_name}"
+    limit_e="100" 
+    limit_l="0" 
+    limit_u="0.2" 
+    limit_v="0.5" 
+    />
+
+    <xacro:m_link_mesh 
+    name="${link_05_name}"
+    origin_xyz="0 0 0"
+    origin_rpy="1.5708 0 1.5708" 
+    meshfile="package://intermediate_project/meshes/PincherFinger.stl"
+    mass="0.006897"
+    ixx="0.000001126849" ixy="0"  ixz="0"
+    iyy="0.000001776150" iyz="-0.000000277589"
+    izz="0.000001161745"	
+    />
+
+    <xacro:m_joint_mimic 
+    name="${joint_06_name}" 
+    type="prismatic"
+    axis_xyz="0 0 1"
+    origin_rpy="0 0 0" 
+    origin_xyz="0.071344 0 -0.028641"
+    parent="${link_04_name}" 
+    child="${link_06_name}"
+    limit_e="100" 
+    limit_l="0" 
+    limit_u="0.2" 
+    limit_v="0.5"
+    mimic_joint="${joint_05_name}" 
+    m_multiplier="1"
+    m_offset="0" 
+    />
+
+    <xacro:m_link_mesh 
+    name="${link_06_name}"
+    origin_xyz="0 0 0"
+    origin_rpy="1.5708 0 1.5708" 
+    meshfile="package://intermediate_project/meshes/PincherFinger.stl"
+    mass="0.006897"
+    ixx="0.000001126849" ixy="0"  ixz="0"
+    iyy="0.000001776150" iyz="-0.000000277589"
+    izz="0.000001161745"	
+  />
+
+  <!-- END - Robot description -->
+
+  <!-- Gazebo Plugin -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+    </plugin>
+  </gazebo>
+
+</robot>

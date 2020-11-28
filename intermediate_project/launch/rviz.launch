@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="gui" value="true"/>
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find intermediate_project)/urdf/px1_description_macros.urdf.xacro' robot_namespace:=first"/>
+    <param name="second_robot_description" command="$(find xacro)/xacro --inorder '$(find intermediate_project)/urdf/px2_description_macros.urdf.xacro' robot_namespace:=second"/>
+
+    <group ns="first">
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+        <node if="$(arg gui)" name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+        <node unless="$(arg gui)" name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+            <param name="tf_prefix" value="first"/>
+    </group>
+
+    <group ns="second">
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+        <node if="$(arg gui)" name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+        <node unless="$(arg gui)" name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+            <remap from="robot_description" to="second_robot_description" />
+            <param name="tf_prefix" value="second"/>
+    </group>
+
+    
+    <!-- <node name="rviz" pkg="rviz" type="rviz" args=" -d $(find intermediate_project)/config/config.rviz"/> -->
+
+</launch>
