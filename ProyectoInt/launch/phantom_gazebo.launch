@@ -50,13 +50,7 @@
 		args="-urdf -param robot_description
 		-model phantom -x $(arg x) -y $(arg y) -z $(arg z) -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)" />
 
-	<node name="mybot_spawn2" 
-		pkg="gazebo_ros" 
-		type="spawn_model" 
-		output="screen"
-		args="-urdf -param robot_description2
-		-model phantom2 -x $(arg x2) -y $(arg y2) -z $(arg z2) -R $(arg roll2) -P $(arg pitch2) -Y $(arg yaw2)" />
-
+	
 	<!-- State Publisher -->
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
 

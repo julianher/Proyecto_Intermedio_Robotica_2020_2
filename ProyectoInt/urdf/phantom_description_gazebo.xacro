@@ -141,6 +141,137 @@
     parent="${link_04_name}"
   />
 
+
+<joint name="joint_name2" type="fixed">
+    <parent link="world"/>
+    <child link="${link_00_name2}"/>
+    <origin xyz="1.0 0.0 0.0" rpy="0.0 0.0 3.14"/>
+  </joint>
+
+  <xacro:m_link_mesh name="${link_00_name2}"
+    origin_xyz="0 0 0"
+    origin_rpy="0 0 0" 
+    meshfile="package://ProyectoInt/meshes/PincherBase.dae"
+    mass="0.335"
+    ixx="0.000646642" ixy="0.000000000097" ixz="-0.000132198"
+    iyy="0.000742088" iyz="-0.000000000037"
+    izz="0.000704614"	
+  />
+
+  <xacro:m_joint name="${joint_01_name2}" 
+    type="revolute"
+    axis_xyz="0 0 1"
+    origin_rpy="0 0 0" origin_xyz="0 0 0"
+    parent="${link_00_name2}" child="${link_01_name2}"
+    limit_e="100" limit_l="-3.14" limit_u="3.14" limit_v="0.5" 
+  />
+
+  <xacro:m_link_mesh name="${link_01_name2}"
+    origin_xyz="0 0 0.095"
+    origin_rpy="0 0 0" 
+    meshfile="package://ProyectoInt/meshes/PincherLink1.dae"
+    mass="0.118"
+    ixx="0.000036432" ixy="-0.000000002" ixz="0.000000026"
+    iyy="0.000030893" iyz="-0.000000383"
+    izz="0.000018984"	
+  />
+
+  <xacro:m_joint name="${joint_02_name2}" 
+    type="revolute"
+    axis_xyz="0 0 1"
+    origin_rpy="-1.57 0 0" origin_xyz="0 0 0.137"
+    parent="${link_01_name2}" child="${link_02_name2}"
+    limit_e="100" limit_l="-3.14" limit_u="3.14" limit_v="0.5" 
+  />
+
+  <xacro:m_link_mesh name="${link_02_name2}"
+    origin_xyz="0 0 0"
+    origin_rpy="1.57 0 1.57" 
+    meshfile="package://ProyectoInt/meshes/PincherLink2.dae"
+    mass="0.162"
+    ixx="0.000124182" ixy="-0.000000003" ixz="-0.00000002"
+    iyy="0.000111578" iyz="-0.000001864"
+    izz="0.000031204"	
+  />
+
+  <xacro:m_joint name="${joint_03_name2}" 
+    type="revolute"
+    axis_xyz="0 0 1"
+    origin_rpy="0 0 0" origin_xyz="0.105 0 0"
+    parent="${link_02_name2}" child="${link_03_name2}"
+    limit_e="100" limit_l="-3.14" limit_u="3.14" limit_v="0.5" 
+  />
+
+  <xacro:m_link_mesh name="${link_03_name2}"
+    origin_xyz="0 0 0"
+    origin_rpy="1.57 0 1.57" 
+    meshfile="package://ProyectoInt/meshes/PincherLink3.dae"
+    mass="0.162"
+    ixx="0.000124182" ixy="-0.000000003" ixz="-0.00000002"
+    iyy="0.000111578" iyz="-0.000001864"
+    izz="0.000031204"	
+  />
+
+  <xacro:m_joint name="${joint_04_name2}" 
+    type="revolute"
+    axis_xyz="0 0 1"
+    origin_rpy="0 0 0" origin_xyz="0.105 0 0"
+    parent="${link_03_name2}" child="${link_04_name2}"
+    limit_e="100" limit_l="-3.14" limit_u="3.14" limit_v="0.5" 
+  />
+
+  <xacro:m_link_mesh name="${link_04_name2}"
+    origin_xyz="0 0 0"
+    origin_rpy="1.57 0 1.57" 
+    meshfile="package://ProyectoInt/meshes/PincherTool.dae"
+    mass="0.160"
+    ixx="0.000057626" ixy="0.000000041" ixz="0.000002355"
+    iyy="0.000068868" iyz="-0.000000011"
+    izz="0.000053899"	
+  />
+
+  <xacro:m_joint name="${joint_05_name2}" 
+    type="prismatic"
+    axis_xyz="0 0 1"
+    origin_rpy="0 0 0" origin_xyz="0.071 0 -0.03"
+    parent="${link_04_name2}" child="${link_05_name2}"
+    limit_e="100" limit_l="0" limit_u="0.016" limit_v="0.5" 
+  />
+
+  <xacro:m_link_mesh name="${link_05_name2}"
+    origin_xyz="0 0 0"
+    origin_rpy="1.57 0 1.57" 
+    meshfile="package://ProyectoInt/meshes/PincherFinger.dae"
+    mass="0.018"
+    ixx="0.000002870" ixy="0" ixz="0"
+    iyy="0.000004524" iyz="-0.000000707"
+    izz="0.000002959"	
+  />
+
+  <xacro:m_joint_mimic name="${joint_06_name2}" 
+    type="prismatic"
+    axis_xyz="0 0 1"
+    origin_rpy="3.14 0 0" origin_xyz="0.071 0 0.03"
+    parent="${link_04_name2}" child="${link_06_name2}"
+    limit_e="100" limit_l="0" limit_u="0.016" limit_v="0.5"
+    mimic_joint="${joint_05_name2}" m_multiplier="1" m_offset="0" 
+  />
+
+  <xacro:m_link_mesh name="${link_06_name2}"
+    origin_xyz="0 0 0"
+    origin_rpy="1.57 0 1.57" 
+    meshfile="package://ProyectoInt/meshes/PincherFinger.dae"
+    mass="0.018"
+    ixx="0.000002870" ixy="0" ixz="0"
+    iyy="0.000004524" iyz="-0.000000707"
+    izz="0.000002959"
+  />
+
+  <xacro:create_noa name="NOA2"
+    origin_xyz="0.11 0 0"
+    origin_rpy="-1.57 0 -1.57" 
+    parent="${link_04_name2}"
+  />
   
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
