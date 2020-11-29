@@ -1,22 +1,20 @@
 <?xml version="1.0" ?>
-
-
-<robot name="phantom" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="phantom2" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
 
   <xacro:include filename="$(find ProyectoInt)/urdf/links_joints.xacro" />
   <xacro:include filename="$(find ProyectoInt)/urdf/robot_parameters.xacro" />
     
-  <link name="world">
+  <link name="world2">
   </link>
     
-  <joint name="joint_name" type="fixed">
-    <parent link="world"/>
-    <child link="${link_00_name}"/>
+  <joint name="joint_name2" type="fixed">
+    <parent link="world2"/>
+    <child link="${link_00_name2}"/>
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
   </joint>
 
-  <xacro:m_link_mesh name="${link_00_name}"
+  <xacro:m_link_mesh name="${link_00_name2}"
     origin_xyz="0 0 0"
     origin_rpy="0 0 0" 
     meshfile="package://ProyectoInt/meshes/PincherBase.dae"
@@ -26,15 +24,15 @@
     izz="0.000704614"	
   />
 
-  <xacro:m_joint name="${joint_01_name}" 
+  <xacro:m_joint name="${joint_01_name2}" 
     type="revolute"
     axis_xyz="0 0 1"
     origin_rpy="0 0 0" origin_xyz="0 0 0"
-    parent="${link_00_name}" child="${link_01_name}"
+    parent="${link_00_name2}" child="${link_01_name2}"
     limit_e="100" limit_l="-3.14" limit_u="3.14" limit_v="0.5" 
   />
 
-  <xacro:m_link_mesh name="${link_01_name}"
+  <xacro:m_link_mesh name="${link_01_name2}"
     origin_xyz="0 0 0.095"
     origin_rpy="0 0 0" 
     meshfile="package://ProyectoInt/meshes/PincherLink1.dae"
@@ -44,15 +42,15 @@
     izz="0.000018984"	
   />
 
-  <xacro:m_joint name="${joint_02_name}" 
+  <xacro:m_joint name="${joint_02_name2}" 
     type="revolute"
     axis_xyz="0 0 1"
     origin_rpy="-1.57 0 0" origin_xyz="0 0 0.137"
-    parent="${link_01_name}" child="${link_02_name}"
+    parent="${link_01_name2}" child="${link_02_name2}"
     limit_e="100" limit_l="-3.14" limit_u="3.14" limit_v="0.5" 
   />
 
-  <xacro:m_link_mesh name="${link_02_name}"
+  <xacro:m_link_mesh name="${link_02_name2}"
     origin_xyz="0 0 0"
     origin_rpy="1.57 0 1.57" 
     meshfile="package://ProyectoInt/meshes/PincherLink2.dae"
@@ -62,15 +60,15 @@
     izz="0.000031204"	
   />
 
-  <xacro:m_joint name="${joint_03_name}" 
+  <xacro:m_joint name="${joint_03_name2}" 
     type="revolute"
     axis_xyz="0 0 1"
     origin_rpy="0 0 0" origin_xyz="0.105 0 0"
-    parent="${link_02_name}" child="${link_03_name}"
+    parent="${link_02_name2}" child="${link_03_name2}"
     limit_e="100" limit_l="-3.14" limit_u="3.14" limit_v="0.5" 
   />
 
-  <xacro:m_link_mesh name="${link_03_name}"
+  <xacro:m_link_mesh name="${link_03_name2}"
     origin_xyz="0 0 0"
     origin_rpy="1.57 0 1.57" 
     meshfile="package://ProyectoInt/meshes/PincherLink3.dae"
@@ -80,15 +78,15 @@
     izz="0.000031204"	
   />
 
-  <xacro:m_joint name="${joint_04_name}" 
+  <xacro:m_joint name="${joint_04_name2}" 
     type="revolute"
     axis_xyz="0 0 1"
     origin_rpy="0 0 0" origin_xyz="0.105 0 0"
-    parent="${link_03_name}" child="${link_04_name}"
+    parent="${link_03_name2}" child="${link_04_name2}"
     limit_e="100" limit_l="-3.14" limit_u="3.14" limit_v="0.5" 
   />
 
-  <xacro:m_link_mesh name="${link_04_name}"
+  <xacro:m_link_mesh name="${link_04_name2}"
     origin_xyz="0 0 0"
     origin_rpy="1.57 0 1.57" 
     meshfile="package://ProyectoInt/meshes/PincherTool.dae"
@@ -98,15 +96,15 @@
     izz="0.000053899"	
   />
 
-  <xacro:m_joint name="${joint_05_name}" 
+  <xacro:m_joint name="${joint_05_name2}" 
     type="prismatic"
     axis_xyz="0 0 1"
     origin_rpy="0 0 0" origin_xyz="0.071 0 -0.03"
-    parent="${link_04_name}" child="${link_05_name}"
+    parent="${link_04_name2}" child="${link_05_name2}"
     limit_e="100" limit_l="0" limit_u="0.016" limit_v="0.5" 
   />
 
-  <xacro:m_link_mesh name="${link_05_name}"
+  <xacro:m_link_mesh name="${link_05_name2}"
     origin_xyz="0 0 0"
     origin_rpy="1.57 0 1.57" 
     meshfile="package://ProyectoInt/meshes/PincherFinger.dae"
@@ -116,16 +114,16 @@
     izz="0.000002959"	
   />
 
-  <xacro:m_joint_mimic name="${joint_06_name}" 
+  <xacro:m_joint_mimic name="${joint_06_name2}" 
     type="prismatic"
     axis_xyz="0 0 1"
     origin_rpy="3.14 0 0" origin_xyz="0.071 0 0.03"
-    parent="${link_04_name}" child="${link_06_name}"
+    parent="${link_04_name2}" child="${link_06_name2}"
     limit_e="100" limit_l="0" limit_u="0.016" limit_v="0.5"
-    mimic_joint="${joint_05_name}" m_multiplier="1" m_offset="0" 
+    mimic_joint="${joint_05_name2}" m_multiplier="1" m_offset="0" 
   />
 
-  <xacro:m_link_mesh name="${link_06_name}"
+  <xacro:m_link_mesh name="${link_06_name2}"
     origin_xyz="0 0 0"
     origin_rpy="1.57 0 1.57" 
     meshfile="package://ProyectoInt/meshes/PincherFinger.dae"
@@ -138,7 +136,7 @@
   <xacro:create_noa name="NOA"
     origin_xyz="0.11 0 0"
     origin_rpy="-1.57 0 -1.57" 
-    parent="${link_04_name}"
+    parent="${link_04_name2}"
   />
 
   

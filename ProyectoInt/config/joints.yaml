@@ -13,3 +13,13 @@ phantom_position_controller:
    - joint_4
    - gripper_1
    - gripper_2 
+
+phantom2_position_controller:
+  type: position_controllers/JointGroupPositionController
+  joints:
+   - joint2_1
+   - joint2_2
+   - joint2_3
+   - joint2_4
+   - gripper2_1
+   - gripper2_2 

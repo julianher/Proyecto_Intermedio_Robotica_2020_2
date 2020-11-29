@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>	
 	
-	<!-- Robot Model -->
+	<!-- Robot Model 1 Parameters-->
     <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find ProyectoInt)/urdf/phantom_description_gazebo.xacro'" />
 	<arg name="x" default="0"/>
 	<arg name="y" default="0"/>
 	<arg name="z" default="0"/>
 
-
-	<arg name="x2" default="1"/>
-	<arg name="y2" default="0"/>
-	<arg name="z2" default="0"/>
-
 	<arg name="roll" default="0"/>
 	<arg name="pitch" default="0"/>
 	<arg name="yaw" default="0"/>
+
+	<!-- Robot Model 2 Parameters-->
+	<param name="robot_description2" command="$(find xacro)/xacro --inorder '$(find ProyectoInt)/urdf/phantom2_description_gazebo.xacro'" />
+	<arg name="x2" default="1"/>
+	<arg name="y2" default="0"/>
+	<arg name="z2" default="0"/>
 
 
 	<arg name="roll2" default="0"/>
@@ -30,6 +31,7 @@
 		args=" 
 		joint_state_controller
 		phantom_position_controller
+		phantom2_position_controller
 		--timeout 60">
 	</node>
 		
@@ -51,7 +53,7 @@
 		pkg="gazebo_ros" 
 		type="spawn_model" 
 		output="screen"
-		args="-urdf -param robot_description
+		args="-urdf -param robot_description2
 		-model phantom2 -x $(arg x2) -y $(arg y2) -z $(arg z2) -R $(arg roll2) -P $(arg pitch2) -Y $(arg yaw2)" />
 
 	<!-- State Publisher -->
