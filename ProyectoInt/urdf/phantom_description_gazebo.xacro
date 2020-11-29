@@ -47,7 +47,7 @@
   <xacro:m_joint name="${joint_02_name}" 
     type="revolute"
     axis_xyz="0 0 1"
-    origin_rpy="-1.57 0 0" origin_xyz="0 0 0.137"
+    origin_rpy="-1.57 -1.57 0" origin_xyz="0 0 0.137"
     parent="${link_01_name}" child="${link_02_name}"
     limit_e="100" limit_l="-3.14" limit_u="3.14" limit_v="0.5" 
   />
