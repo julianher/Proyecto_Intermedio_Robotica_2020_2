@@ -14,17 +14,4 @@
   <xacro:property name="joint_04_name" value="joint_4" />
   <xacro:property name="joint_05_name" value="gripper_1" />
   <xacro:property name="joint_06_name" value="gripper_2" />
-  <xacro:property name="link_00_name2" value="robot_base2" />
-  <xacro:property name="link_01_name2" value="link2_01" />
-  <xacro:property name="link_02_name2" value="link2_02" />
-  <xacro:property name="link_03_name2" value="link2_03" />
-  <xacro:property name="link_04_name2" value="link2_04" />
-  <xacro:property name="link_05_name2" value="finger2_1" />
-  <xacro:property name="link_06_name2" value="finger2_2" />
-  <xacro:property name="joint_01_name2" value="joint2_1" />
-  <xacro:property name="joint_02_name2" value="joint2_2" />
-  <xacro:property name="joint_03_name2" value="joint2_3" />
-  <xacro:property name="joint_04_name2" value="joint2_4" />
-  <xacro:property name="joint_05_name2" value="gripper2_1" />
-  <xacro:property name="joint_06_name2" value="gripper2_2" />
 </robot>
