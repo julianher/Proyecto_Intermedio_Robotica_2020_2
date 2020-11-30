@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<robot name="Zona_Alimentacion">
+      <link name="alimentacion">
+        <inertial>
+          <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+          <mass value="6.365" />
+          <inertia  ixx="0.026003677" ixy="0.0"  ixz="0.0"  iyy="0.137391177"  iyz="0.0"  izz="0.153820833" />
+        </inertial>
+        <visual>
+          <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+         <geometry>
+           <mesh filename="package://ProyectoInt/meshes/ZonaAlimentacion.stl" />
+         </geometry>
+         <material name="red">
+          <color rgba="1.0 0.0 0.0 1.0"/>
+         </material>
+       </visual>
+       <collision>
+         <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+         <geometry>
+           <mesh filename="package://ProyectoInt/meshes/ZonaAlimentacion.stl"/>
+         </geometry>
+       </collision>
+     </link>
+     <gazebo reference="alimentacion">
+       <material>Gazebo/Blue</material>
+     </gazebo>
+</robot>
+

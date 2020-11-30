@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<robot name="Zona_Ensamble">
+      <link name="ensamble">
+        <inertial>
+          <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+          <mass value="1.790" />
+          <inertia  ixx="0.004590694" ixy="0.0"  ixz="-0.001181006"  iyy="0.009780904"  iyz="0.0"  izz="0.011903296" />
+        </inertial>
+        <visual>
+          <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+         <geometry>
+           <mesh filename="package://ProyectoInt/meshes/ZonaEnsamble.stl" />
+         </geometry>
+         <material name="red">
+          <color rgba="1.0 0.0 0.0 1.0"/>
+         </material>
+       </visual>
+       <collision>
+         <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+         <geometry>
+           <mesh filename="package://ProyectoInt/meshes/ZonaEnsamble.stl"/>
+         </geometry>
+       </collision>
+     </link>
+     <gazebo reference="ensamble">
+       <material>Gazebo/Blue</material>
+     </gazebo>
+</robot>
