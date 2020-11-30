@@ -31,7 +31,7 @@
         <include file="$(find ProyectoInt)/launch/z_alimentacion_gazebo.launch">
             <arg name="robot_name" value="Zona_Alimentacion"/>
             <arg name="x" value="0"/>
-	        <arg name="y" value="0.15"/>
+	        <arg name="y" value="0.1"/>
 	        <arg name="z" value="0"/>
             <arg name="Y" value="0"/>
         </include>
