@@ -18,20 +18,32 @@
         <param name="tf_prefix" value="robot2_tf" />
         <include file="$(find ProyectoInt)/launch/phantom_gazebo.launch">
             <arg name="robot_name" value="phantom2"/>
-            <arg name="x" value="0.5"/>
+            <arg name="x" value="0.427"/>
 	        <arg name="y" value="0"/>
 	        <arg name="z" value="0"/>
             <arg name="Y" value="3.1416"/>
         </include>
     </group>
 
-	<!-- Zona de alimentación -->
-    <group ns="z_alimentacion">
-        <param name="tf_prefix" value="z_alimentacion_tf" />
+	<!-- Zona de alimentación tornillos -->
+    <group ns="z_alimentacion_torn">
+        <param name="tf_prefix" value="z_alimentacion_torn_tf" />
         <include file="$(find ProyectoInt)/launch/z_alimentacion_gazebo.launch">
-            <arg name="robot_name" value="Zona_Alimentacion"/>
-            <arg name="x" value="0"/>
-	        <arg name="y" value="0.1"/>
+            <arg name="robot_name" value="Zona_Alimentacion1"/>
+            <arg name="x" value="0.052"/>
+	        <arg name="y" value="0.094"/>
+	        <arg name="z" value="0"/>
+            <arg name="Y" value="0"/>
+        </include>
+    </group>>
+
+    <!-- Zona de alimentación tuercas-->
+    <group ns="z_alimentacion_tuerc">
+        <param name="tf_prefix" value="z_alimentacion_tuerc_tf" />
+        <include file="$(find ProyectoInt)/launch/z_alimentacion_gazebo.launch">
+            <arg name="robot_name" value="Zona_Alimentacion2"/>
+            <arg name="x" value="0.225"/>
+	        <arg name="y" value="0.094"/>
 	        <arg name="z" value="0"/>
             <arg name="Y" value="0"/>
         </include>
@@ -42,8 +54,8 @@
         <param name="tf_prefix" value="z_ensamble_tf" />
         <include file="$(find ProyectoInt)/launch/z_ensamble_gazebo.launch">
             <arg name="robot_name" value="Zona_Ensamble"/>
-            <arg name="x" value="0.1"/>
-	        <arg name="y" value="-0.25"/>
+            <arg name="x" value="0.094"/>
+	        <arg name="y" value="-0.183"/>
 	        <arg name="z" value="0"/>
             <arg name="Y" value="0"/>
         </include>

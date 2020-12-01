@@ -4,8 +4,8 @@
       <link name="ensamble">
         <inertial>
           <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
-          <mass value="1.790" />
-          <inertia  ixx="0.004590694" ixy="0.0"  ixz="-0.001181006"  iyy="0.009780904"  iyz="0.0"  izz="0.011903296" />
+          <mass value="0.882" />
+          <inertia  ixx="0.001438432" ixy="0.0"  ixz="-0.000330708"  iyy="0.004406841"  iyz="0.0"  izz="0.005452392" />
         </inertial>
         <visual>
           <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />

@@ -4,8 +4,8 @@
       <link name="alimentacion">
         <inertial>
           <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
-          <mass value="6.365" />
-          <inertia  ixx="0.026003677" ixy="0.0"  ixz="0.0"  iyy="0.137391177"  iyz="0.0"  izz="0.153820833" />
+          <mass value="0.353" />
+          <inertia  ixx="0.000518226" ixy="0.0"  ixz="0.0"  iyy="0.000682845"  iyz="0.0"  izz="0.001158212" />
         </inertial>
         <visual>
           <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
