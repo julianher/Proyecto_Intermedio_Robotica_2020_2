@@ -1,6 +1,15 @@
 <?xml version="1.0"?>
 
 <robot name="Zona_Ensamble">
+      <link name="world">
+      </link>
+        
+      <joint name="joint_name" type="fixed">
+        <parent link="world"/>
+        <child link="ensamble"/>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      </joint>
+
       <link name="ensamble">
         <inertial>
           <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
