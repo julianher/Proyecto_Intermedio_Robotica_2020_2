@@ -14,7 +14,6 @@ function [xyTuercas, xyTornillos,Ic,centrTuercas,centrTornillos]=clasificar(Ipie
     Imask = imfill(Imask,'holes');
     %Filtro de mediana
     Ic = medfilt2(Imask,[40 40]);
-    imshow(Ic);
     %Identificación y etiquetado de regiones
     [L Ne]=bwlabel(Ic);
     %Propiedades de interés

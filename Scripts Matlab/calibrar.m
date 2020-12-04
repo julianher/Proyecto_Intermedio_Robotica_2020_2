@@ -1,5 +1,4 @@
-function [params,estimationErrors,R,t] = calibrar (Path)     
-    files = dir(Path);
+function [params,estimationErrors,R,t,Im1] = calibrar (Path)
     images=imageDatastore(strcat(Path,"/Calibracion"));
     imageFileNames=images.Files;
     % Detectar patrón de calibración
