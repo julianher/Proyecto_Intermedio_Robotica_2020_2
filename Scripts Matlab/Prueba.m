@@ -1,4 +1,4 @@
-Path="G:\Mi unidad\Sincronizado2020\Sincronizado 2020\Unal\2020-2\Robotica\Proyectos\Intermedio";
+Path="C:\Users\Alejandra\Documents\GitHub\Proyecto_Intermedio_Robotica_2020_2\Scripts Matlab";
 [params,estimationErrors,R,t] = calibrar (Path);
 Ipiezas=imread('Ipiezas.jpg');
 %%
