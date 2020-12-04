@@ -30,4 +30,6 @@ function [xyTuercas, xyTornillos,Ic,centrTuercas,centrTornillos]=clasificar(Ipie
     esc=150/220;
     xyTuercas=pointsToWorld(params, RCal, TCal, centrTuercas)*esc;
     xyTornillos=pointsToWorld(params, RCal, TCal, centrTornillos)*esc;
+    xyTornillos =  xyTornillos/1000;
+    xyTuercas = xyTuercas/1000;
 end

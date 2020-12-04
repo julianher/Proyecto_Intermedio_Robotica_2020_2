@@ -4,14 +4,13 @@ captICal(Path);
 %% Calibrar cámara
 [params,estimationErrors,R,t] = calibrar (Path);
 %% Capturar Imagen de Piezas Para Clasificación
-Ipiezas=captPiezas();
-imwrite(Ipiezas,'Ipiezas.jpg')
+Ipiezas=captPiezas(Path);
 %% Cargar Imagen
-Ipiezas=imread('Ipiezas.jpg');
+a=cargarImagen(Path);
+imshow(a);
 %% Clasifucar  piezas
 [xyTuercas, xyTornillos,Ic,centrTuercas,centrTornillos]=clasificar(Ipiezas,params,R,t);
-xyTornillos =  xyTornillos/1000;
-xyTuercas = xyTuercas/1000;
+
 %%
 
 if length(xyTornillos) >= length(xyTuercas)

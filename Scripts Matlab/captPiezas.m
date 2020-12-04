@@ -7,7 +7,10 @@ function [piezas] = captPiezas(Path)
       set(Ipiezas,'CData',piezas);
       drawnow; 
       pause(2)
+      imwrite(piezas,strcat(Path,'/Ipiezas.jpg'));
       return;
     end
+    
 end
+
 
