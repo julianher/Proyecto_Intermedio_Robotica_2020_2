@@ -1,6 +1,6 @@
 function [params,estimationErrors,R,t] = calibrar (Path)     
     files = dir(Path);
-    images=imageDatastore(strcat(Path,"\Calibracion"));
+    images=imageDatastore(strcat(Path,"/Calibracion"));
     imageFileNames=images.Files;
     % Detectar patrón de calibración
     [imagePoints, boardSize] = detectCheckerboardPoints(imageFileNames);
@@ -12,7 +12,7 @@ function [params,estimationErrors,R,t] = calibrar (Path)
     Ical=readimage(images,1);
     imageSize=[size(Ical,1),size(Ical,2)];
     [params, ~, estimationErrors] = estimateCameraParameters(imagePoints, worldPoints, 'ImageSize', imageSize);    
-    im=imread(strcat(Path,'\Calibracion\1.jpg'));    
+    im=imread(strcat(Path,'/Calibracion/1.jpg'));    
     [Im1, newOrigin] = undistortImage(im, params, 'OutputView', 'full');
     [imagePoints, boardSize] = detectCheckerboardPoints(im);
     imagePoints = imagePoints + newOrigin;

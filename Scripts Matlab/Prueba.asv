@@ -2,9 +2,8 @@ Path="/home/julian/Documents/GitHub/Proyecto_Intermedio_Robotica_2020_2/Scripts 
 [params,estimationErrors,R,t] = calibrar (Path);
 Ipiezas=imread('Ipiezas.jpg');
 %%
+
 [xyTuercas, xyTornillos,Ic,centrTuercas,centrTornillos]=clasificar(Ipiezas,params,R,t);
-xyTornillos =  xyTornillos/1000;
-xyTuercas = xyTuercas/1000;
 %%
 
 if length(xyTornillos) >= length(xyTuercas)
@@ -13,7 +12,8 @@ else
     numax = length(xyTuercas);
 end
 
-
+xyTornillos =  xyTornillos/10;
+xyTuercas = xyTuercas/10;
 for i = 1:numax
     
    if i<=length(xyTornillos)

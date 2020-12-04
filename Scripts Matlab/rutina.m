@@ -75,7 +75,7 @@ function rutina_robot2(entrada_x,entrada_y)
 d = 0.42; % Distancia entre robots
 
 % Definición del robot
-L2(1) = Link('revolute','alpha',0,'a',0.5,'d',0.137,'offset',pi,'modified');
+L2(1) = Link('revolute','alpha',0,'a',d,'d',0.137,'offset',pi,'modified');
 L2(2) = Link('revolute','alpha',-pi/2,'a',0,'d',0,'offset',-pi/2,'qlim',[-pi/2 30*pi/180] ,'modified');
 L2(3) = Link('revolute','alpha',0,'a',0.105,'d',0,'offset',0,'modified');
 L2(4) = Link('revolute','alpha',0,'a',0.105,'d',0,'offset',0,'modified');
