@@ -1,8 +1,21 @@
-function rutina(entrada_x,entrada_y,num)
-if num == 1
-    rutina_robot1(entrada_x,entrada_y)
-elseif num == 2
-    rutina_robot2(entrada_x,entrada_y)    
+
+function rutina(xyTornillos,xyTuercas)
+if length(xyTornillos) >= length(xyTuercas)
+ numax = length(xyTornillos);
+else
+    numax = length(xyTuercas);
+end
+
+
+for i = 1:numax
+    
+   if i<=length(xyTornillos)
+     rutina_robot1(xyTornillos(i,1),xyTornillos(i,2))
+   end
+   
+   if i<=length(xyTuercas)
+     rutina_robot2(xyTuercas(i,1),xyTuercas(i,2))
+   end
 end
 end
 
