@@ -2,15 +2,14 @@ Path="/home/julian/Documents/GitHub/Proyecto_Intermedio_Robotica_2020_2/Scripts 
 %% Capturar Imágenes Para Calibración
 captICal(Path);
 %% Calibrar cámara
-[params,estimationErrors,R,t] = calibrar (Path);
+[params,estimationErrors,R,t,im,w] = calibrar (Path);
 %% Capturar Imagen de Piezas Para Clasificación
 Ipiezas=captPiezas(Path);
 %% Cargar Imagen
 a=cargarImagen(Path);
 imshow(a);
-%% Clasifucar  piezas
-[xyTuercas, xyTornillos,Ic,centrTuercas,centrTornillos]=clasificar(Ipiezas,params,R,t);
-
+%% Clasificar  piezas
+[xyTuercas, xyTornillos,Ic,Itrim,centrTuercas,centrTornillos]=clasificar(Ipiezas,params,R,t,w);
 %%
 
 if length(xyTornillos) >= length(xyTuercas)
