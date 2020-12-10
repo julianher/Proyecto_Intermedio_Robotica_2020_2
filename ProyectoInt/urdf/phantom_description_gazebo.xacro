@@ -147,4 +147,31 @@
     </plugin>
   </gazebo>
 
+  <gazebo reference="${link_00_name}">
+       <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="${link_01_name}">
+       <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="${link_02_name}">
+       <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="${link_03_name}">
+       <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="${link_04_name}">
+       <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="${link_05_name}">
+       <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="${link_06_name}">
+       <material>Gazebo/Black</material>
+  </gazebo>
 </robot>

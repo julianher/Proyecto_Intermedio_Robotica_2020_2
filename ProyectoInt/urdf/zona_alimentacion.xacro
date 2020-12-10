@@ -33,7 +33,7 @@
        </collision>
      </link>
      <gazebo reference="alimentacion">
-       <material>Gazebo/Blue</material>
+       <material>Gazebo/Green</material>
      </gazebo>
 </robot>
 

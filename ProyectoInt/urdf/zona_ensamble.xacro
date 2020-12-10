@@ -33,6 +33,6 @@
        </collision>
      </link>
      <gazebo reference="ensamble">
-       <material>Gazebo/Blue</material>
+       <material>Gazebo/Red</material>
      </gazebo>
 </robot>
