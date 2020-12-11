@@ -7,7 +7,7 @@
 
 
 <joint name="camera_joint" type="fixed">
-    <origin xyz="0.6 -0.6 1" rpy="0 0.78 2"/>
+    <origin xyz="0.4 -0.4 0.8" rpy="0 0.95 2"/>
     <parent link="world"/>
     <child link="camera_link"/>
   </joint>
@@ -42,8 +42,8 @@
       <camera name="head">
         <horizontal_fov>1.3962634</horizontal_fov>
         <image>
-          <width>800</width>
-          <height>800</height>
+          <width>1300</width>
+          <height>720</height>
           <format>R8G8B8</format>
         </image>
         <clip>

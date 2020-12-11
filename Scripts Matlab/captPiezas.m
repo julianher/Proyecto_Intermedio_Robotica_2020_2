@@ -5,7 +5,6 @@ function [piezas] = captPiezas(Path)
       piezas  = imread(url);
       Ipiezas=image(piezas);
       set(Ipiezas,'CData',piezas);
-      drawnow; 
       pause(2)
       imwrite(piezas,strcat(Path,'/Ipiezas.jpg'));
       return;

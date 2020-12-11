@@ -4,8 +4,7 @@ function [] = captICal(Path)
     while(1)
       Cal  = imread(url);
       Ical=image(Cal);
-      set(Ical,'CData',Cal);
-      drawnow;  
+      set(Ical,'CData',Cal);  
       for i=1:16              
          imwrite(Cal, strcat(Path,'/Calibracion/',int2str(i),'.jpg'));
          pause(1)
